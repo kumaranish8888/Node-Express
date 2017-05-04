@@ -1,0 +1,23 @@
+{
+  "name": "customerapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumaranish8888/Node-Express.git"
+  },
+    "dependencies": {
+      "express": "*",
+        "body-parser": "*"
+    },
+  "author": "Anish Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kumaranish8888/Node-Express/issues"
+  },
+  "homepage": "https://github.com/kumaranish8888/Node-Express#readme"
+}
