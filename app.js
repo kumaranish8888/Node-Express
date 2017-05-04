@@ -12,12 +12,24 @@ var logger = function(req, res, next){
 
 app.use(logger);
 */
+//View Engine
+app.set('view engine', 'ejs');
 
+//Spcify the folder where you need your views
+app.set('views', path.join(__dirname, 'views'));
+
+//BodyParser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlextended({extend: false}));
+app.use(bodyParser.urlencoded({extended: false}));
+
+//Set static path, This path file will overwrite any data in app.js file while rendering
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.get('/', function(req, res){
-    res.send('Hello World');
+    res.render('index', {
+        title: "Customers"
+    });
 })
 
 app.listen(3000, function(){
