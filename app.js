@@ -65,6 +65,9 @@ app.get('/', function(req, res){
     });
 })
 
+app.post('/users/add', function(res, req){
+    console.log(req.body.first_name);
+})
 
 
 /*
