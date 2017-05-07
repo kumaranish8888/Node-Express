@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var expressValidator = require('express-validator');
 
 var app = express();
 /*
@@ -27,6 +28,23 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //Set static path, This path file will overwrite any data in app.js file while rendering
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
 
 //An array of Objects
@@ -63,11 +81,16 @@ app.get('/', function(req, res){
         title: "Customers",
         users: users
     });
-})
+}) 
 
-app.post('/users/add', function(res, req){
-    console.log(req.body.first_name);
-})
+app.post('/users/add', function(req, res){
+    var newUser = {
+        first_name : req.body.first_name,
+        last_name : req.body.last_name,
+        email : req.body.email
+    }
+    console.log(newUser);
+}) 
 
 
 /*
