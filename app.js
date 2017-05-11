@@ -28,7 +28,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //Global Vars
-app.use(function(resq, res, next){
+app.use(function(req, res, next){
     res.locals.errors = null;
     next();
 })
@@ -79,15 +79,16 @@ var people = [
         emai:"mpatel@gmail.com"
     }
 ];
-
 */
+
+
 
 app.get('/', function(req, res){
     // find everything
         db.users.find(function (err, docs) {
-            console.log(docs);// docs is an array of all the documents in users in the database
+          //  console.log(docs);// docs is an array of all the documents in users in the database
             res.render('index', {
-                title: "Customers",
+                title: "Vendors",
                 people: docs
     });
         })
@@ -103,7 +104,7 @@ app.post('/people/add', function(req, res){
     
     if(errors){
         res.render('index', {
-            title: "Customers",
+            title: "Vendors",
             people: people,
             errors: errors
     });
