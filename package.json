@@ -1,0 +1,26 @@
+{
+  "name": "customerapp",
+  "version": "1.0.0",
+  "description": "simple app for customers entry",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express-validator": "^3.2.0",
+    "mongojs": "^2.4.0",
+    "save": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumaranish8888/Node-Express.git"
+  },
+  "author": "Anish Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kumaranish8888/Node-Express/issues"
+  },
+  "homepage": "https://github.com/kumaranish8888/Node-Express#readme"
+}
