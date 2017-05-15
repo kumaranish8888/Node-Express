@@ -1,0 +1,29 @@
+<% include partials/header %>
+    
+    <h1>This is the node application</h1>
+
+    <% if(errors){ %>
+        <ul>
+        <% errors.forEach(function(error){ %>
+            <li><%= error.msg %> </li>
+    <%    }) %>
+    </ul>
+<%} %>
+
+    <form method="POST" action="/people/add">
+        <label>First Name</label><br>
+        <input type="text" name="first_name"><br>
+        <label>Last Name</label><br>
+        <input type="text" name="last_name"><br>
+        <label>Email</label><br>
+        <input type="text" name="email"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <ul>
+        <% people.forEach(function(people){ %>
+            <li><%= people.first_name %> <%= people.last_name %></li>
+    <%    }) %>
+    </ul>
+<% include partials/footer %>
+    
