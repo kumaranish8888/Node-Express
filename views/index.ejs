@@ -1,0 +1,31 @@
+<% include partials/header %>
+        <h1>This is my node application</h1>
+
+       
+            <% if(errors){ %>
+        <ul>
+         <% errors.forEach(function(error){ %>
+                <li><%= error.msg %> </li>
+        <%    }) %>
+        </ul>
+    <%    } %>
+       
+
+        <form method='post' action="/users/add">
+            <label>First Name</label>
+            <input type="text" name="first_name"><br>
+            <label>Last name</label>
+            <input type="text" name="last_name"><br>
+            <label>Email</label>
+            <input type="text" name="email"><br>
+            <input type="submit" value="Submit">
+        </form>
+
+    <ul>
+        <% people.forEach(function(people){ %>
+                <li><%= people.first_name %> <%= people.last_name %></li>
+        <%    }) %>
+    </ul>
+
+<% include partials/footer %>
+ 
