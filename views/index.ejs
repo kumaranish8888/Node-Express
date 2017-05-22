@@ -1,0 +1,41 @@
+
+    <% include partials/header %>
+
+        <h1>Enter User Details</h1>
+
+        <form method="POST" action="/users/add">
+            <label>First Name</label><br>
+            <input type="text" name="first_name"><br>
+            <label>Last Name</label><br>
+            <input type="text" name="last_name"><br>
+            <label>Email</label><br>
+            <input type="text" name="email"><br>
+            <input type="submit" value="Submit">
+        </form>
+
+    <% if(errors){ %>
+    
+        <ul>
+
+            <% errors.forEach(function(error){ %>
+    
+                <li><%= error.msg %> 
+            
+            <%    }) %>
+
+        </ul>
+    
+    <% } %>
+
+        <h1>My Node Application</h1>
+        <ul>
+
+            <% people.forEach(function(person){ %>
+    
+                <li><%= person.first_name %> <%= person.last_name %></li>
+            
+            <%    }) %>
+
+        </ul>
+    <% include partials/footer %>
+  
